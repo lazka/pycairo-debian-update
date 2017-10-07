@@ -3,15 +3,30 @@ Section: python
 Priority: optional
 Maintainer: Debian Python Modules Team <python-modules-team@lists.alioth.debian.org>
 Uploaders: Dave Beckett <dajobe@debian.org>, Torsten Marek <shlomme@debian.org>
-Build-Depends: debhelper (>= 7), cdbs (>= 0.4.49), python-all-dev (>= 2.5.4-1~), python-all-dbg (>= 2.5.4-1~), dh-python, libcairo2-dev (>= 1.8.6), python-sphinx
-Standards-Version: 3.8.3
-Homepage: http://cairographics.org/pycairo/
+Build-Depends:
+ debhelper (>= 9),
+ dh-python,
+ python-all,
+ python-all-dev,
+ python3-all,
+ python3-all-dev,
+ python-sphinx,
+ python-sphinx-rtd-theme,
+ python-pytest,
+ python3-pytest,
+ pkg-config,
+ libcairo2-dev,
+Standards-Version: 4.0.0
+Homepage: https://pycairo.readthedocs.io
 Vcs-Svn: svn://anonscm.debian.org/python-modules/packages/pycairo/trunk/
 Vcs-Browser: http://anonscm.debian.org/viewvc/python-modules/packages/pycairo/trunk/
 
 Package: python-cairo
 Architecture: any
-Depends: ${shlibs:Depends}, ${python:Depends}, ${misc:Depends}
+Depends:
+ ${shlibs:Depends},
+ ${python:Depends},
+ ${misc:Depends}
 Provides: ${python:Provides}
 Description: Python bindings for the Cairo vector graphics library
  This package contains modules that allow you to use the Cairo vector
@@ -21,7 +36,11 @@ Package: python-cairo-dbg
 Priority: extra
 Section: debug
 Architecture: any
-Depends: python-cairo (= ${binary:Version}), python-dbg, ${shlibs:Depends}, ${misc:Depends}
+Depends:
+ python-cairo (= ${binary:Version}),
+ python-dbg,
+ ${shlibs:Depends},
+ ${misc:Depends}
 Provides: ${python:Provides}
 Description: Python bindings for the Cairo vector graphics library (debug extension)
  This package contains modules that allow you to use the cairo vector
@@ -31,7 +50,48 @@ Description: Python bindings for the Cairo vector graphics library (debug extens
 
 Package: python-cairo-dev
 Architecture: all
-Depends: python-cairo (>= ${binary:Version}), ${misc:Depends}, libjs-jquery
+Depends:
+ python-cairo (>= ${binary:Version}),
+ ${sphinxdoc:Depends},
+ ${misc:Depends}
 Description: Python cairo bindings: development files
  This package contains files that allow you to compile wrappers
  that interoperate with python-cairo (pycairo).
+
+Package: python3-cairo
+Architecture: any
+Depends:
+ ${shlibs:Depends},
+ ${python3:Depends},
+ ${misc:Depends}
+Description: Python 3 bindings for the Cairo vector graphics library
+ Cairo is a multi-platform library providing anti-aliased vector-based
+ rendering for multiple target backends.
+ .
+ This package contains modules that allow you to use the Cairo in
+ Python 3 programs.
+
+Package: python3-cairo-dev
+Architecture: all
+Depends:
+ python3-cairo (>= ${binary:Version}),
+ ${misc:Depends}
+Suggests: python3-cairo-doc
+Description: Python 3 cairo bindings: development files
+ Cairo is a multi-platform library providing anti-aliased vector-based
+ rendering for multiple target backends.
+ .
+ This package contains files that allow you to compile wrappers
+ that interoperate with python3-cairo (py3cairo).
+
+Package: python3-cairo-doc
+Section: doc
+Architecture: all
+Depends:
+ ${misc:Depends},
+ ${sphinxdoc:Depends}
+Description: Python 3 cairo bindings: documentation files
+ Cairo is a multi-platform library providing anti-aliased vector-based
+ rendering for multiple target backends.
+ .
+ This package contains documentation files of python3-cairo (py3cairo).

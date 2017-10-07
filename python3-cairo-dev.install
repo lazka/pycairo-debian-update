@@ -1,0 +1,2 @@
+debian/python3-cairo/usr/include/ /usr/
+debian/python3-cairo/usr/share/pkgconfig/ /usr/share/

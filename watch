@@ -1,2 +1,2 @@
-version=2
-http://cairographics.org/releases/ pycairo-([\d+\.]+|\d+)\.tar\.gz debian uupdate
+version=4
+https://github.com/pygobject/pycairo/releases .*/pycairo-(.+)\.tar\.gz

@@ -1,2 +1,2 @@
-/usr/include/pycairo/pycairo.h
-/usr/lib/pkgconfig/pycairo.pc
+debian/python-cairo/usr/include/ /usr/
+debian/python-cairo/usr/share/pkgconfig/ usr/share/
